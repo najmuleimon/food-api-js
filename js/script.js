@@ -24,7 +24,7 @@ const searchFood = () => {
     // get the input value
     const searchField = document.getElementById("search-food")
     const searchText = searchField.value
-    searchField.value = ""
+    // searchField.value = ""
 
     // get error if search field is empty
     if(searchText == ""){
@@ -48,10 +48,17 @@ const displayError = error => {
 
 // display food in our website
 const displayFood = meals => {
+    // get the input value
+    const searchField = document.getElementById("search-food")
+
     const searchResult = document.getElementById("search-result")
 
     // clear previous search data
     searchResult.textContent = ""
+
+    // show search result count
+    errorMsg.innerHTML = `${meals.length} results found for "<strong>${searchField.value}</strong>"`
+    searchField.value = ""
 
     // get single food item
     meals.forEach(meal => {
